@@ -34,11 +34,18 @@ module.exports = {
           exclude: /node_modules/
         },
         {
-          test: /\.css$/,
+          test: /\.sass$/,
           use: [
             'style-loader',
             'css-loader?modules',
             'postcss-loader',
+            'sass-loader',
+          ],
+        },
+        {
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          use: [
+            'file-loader',
           ],
         },
       ],

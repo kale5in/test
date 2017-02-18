@@ -1,23 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import App from './App';
+import parse from '../parseRegions';
+import { config } from '../test.js';
+import { generateData } from './utils';
 
-import App from './containers/App';
+const items = parse(config);
 
-const render = (Component) => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    document.getElementById('root')
-  );
-};
+render(
+  <AppContainer>
+    <App
+      items={items}
+    />
+  </AppContainer>,
+  document.getElementById('root')
+);
 
-render(App);
-
-// Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    render(App);
+  module.hot.accept('./App', () => {
+    const RootContainer = require('./App').default;
+    render(
+      <AppContainer>
+        <RootContainer
+          items={items}
+        />
+      </AppContainer>,
+      document.getElementById('root')
+    );
   });
 }
