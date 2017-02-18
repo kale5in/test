@@ -17,7 +17,7 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    this.setState({ visibleRegionList: getVisibleData(data, true) });
+    this.setState({ visibleRegionList: getVisibleData(data, false) });
   }
 
   rowRenderer({ index, key, style }) {
@@ -77,6 +77,4 @@ export default class App extends Component {
       </div>
     )
   }
-
-
 }

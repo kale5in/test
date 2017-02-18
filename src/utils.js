@@ -28,19 +28,40 @@ export function generateData(data) {
   return populatedRegion(regionList, cityList);
 }
 
-export function getVisibleData(data, query) {
-  if (!query) return;
+function queryFilter(query, item) {
+  if (!query) return true;
+  const queryParts = query.split(',');
+  const itemParts = [item.id, item.name];
 
+  return queryParts.some((queryPart) => itemParts.some((itemPart) => {
+    const isNumber = !Number.isNaN(Number.parseInt(itemPart, 10));
+
+    if (isNumber) {
+      return itemPart === queryPart;
+    }
+
+    const preparedQueryPart = queryPart.toLowerCase().trim();
+    const preparedItemPart = itemPart.toLowerCase().trim();
+
+    return preparedItemPart.includes(preparedQueryPart)
+  }));
+}
+
+export function getVisibleData(data, query) {
   const list = [];
 
   for (let i = 0; i < data.length - 1; i++) {
     const region = data[i];
-    list.push({ id: region.id, name: region.name });
+
+    if (queryFilter(query, region)) {
+      list.push({ id: region.id, name: region.name });
+    }
 
     for (let j = 0; j < region.cities.length; j++) {
       const city = region.cities[j];
-
-      list.push({ id: city.id, name: city.name + ` (${region.name})` })
+      if (queryFilter(query, city)) {
+        list.push({ id: city.id, name: `${city.name} (${region.name})` });
+      }
     }
   }
 
