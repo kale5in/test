@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "node_modules/.bin/eslint src/** --ext .js,.jsx",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/.bin/webpack-dev-server --content-base --port 3000",
-    "build": "cross-env NODE_ENV=production webpack --env.prod=true"
+    "start": "node_modules/.bin/webpack-dev-server --content-base --port 3000 --config webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,7 @@
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0",
+    "webpack-merge": "^3.0.0",
     "xlsx-to-json": "^0.2.4"
   },
   "dependencies": {

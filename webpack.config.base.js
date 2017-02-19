@@ -1,28 +1,20 @@
 /*eslint-disable */
+const path = require("path");
+const webpack = require('webpack');
 
-var path = require('path')
-var webpack = require('webpack')
-
-module.exports = {
-    devtool: 'cheap-module-eval-source-map',
-    entry: [
-      'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
-      './src/index'
-    ],
+module.exports = function() {
+  return {
     output: {
-        path: path.join(__dirname, 'static'),
-        filename: 'bundle.js',
-        publicPath: '/static'
+      path: path.join(__dirname, 'public'),
+      filename: 'bundle.js',
+      publicPath: '/'
     },
     resolve: {
-        extensions: [' ', '.js', '.jsx', '.json'],
-        modules: ['node_modules', 'src']
+      extensions: [' ', '.js', '.jsx', '.json'],
+      modules: ['node_modules', 'src']
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin(),
+
     ],
     module: {
       rules: [
@@ -50,11 +42,12 @@ module.exports = {
           ],
         },
         {
-          test: /\.(gif|png|jpe?g|svg)$/i,
+          test: /\.(jpe?g|png|gif|svg|eot|ttf|woff|woff2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
           use: [
             'file-loader',
           ],
         },
       ],
     },
-}
+  };
+};
