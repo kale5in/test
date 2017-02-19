@@ -3,17 +3,10 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import './styles.css';
 import App from './App';
-import parse from '../parseRegions';
-import { config } from '../test.js';
-import { generateData } from './utils';
-
-const items = parse(config);
 
 render(
   <AppContainer>
-    <App
-      items={items}
-    />
+    <App />
   </AppContainer>,
   document.getElementById('root')
 );
@@ -23,9 +16,7 @@ if (module.hot) {
     const RootContainer = require('./App').default;
     render(
       <AppContainer>
-        <RootContainer
-          items={items}
-        />
+        <RootContainer />
       </AppContainer>,
       document.getElementById('root')
     );

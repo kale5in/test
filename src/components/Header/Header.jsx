@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import logo from '../../../Logo.png';
+import logo from '../../../public/image/logo.png';
 import styles from './Header.sass';
 
 export default class Header extends Component {
