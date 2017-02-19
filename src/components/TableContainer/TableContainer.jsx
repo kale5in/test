@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { List, AutoSizer, Table, Column } from 'react-virtualized';
+import { AutoSizer, Table, Column } from 'react-virtualized';
 import styles from './TableContainer.sass';
 
 export default class App extends PureComponent {

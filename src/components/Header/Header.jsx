@@ -36,16 +36,16 @@ export default class Header extends Component {
         <div className={styles.searchContainer}>
           <input
             ref={(input) => { this.input = input; }}
-            className={styles.searchbar}
+            className={styles.searchInput}
             type="text"
-            placeholder="tuch me"
+            placeholder="Введите ID, набор ID через запятую, название региона или города."
             value={this.state.query}
             onChange={(e) => this.handleChange(e.target.value)}
           />
           <input
             className={styles.btn}
             type="button"
-            value="search"
+            value="Искать"
             onClick={this.handleClick}
           />
         </div>
