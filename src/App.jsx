@@ -3,7 +3,7 @@ import styles from './App.sass';
 import Header from './components/Header';
 import TableContainer from './components/TableContainer';
 // HACK get data for use in test page
-import data from './config';
+import data from './api/config';
 import { getVisibleData } from './utils';
 
 export default class App extends Component {
