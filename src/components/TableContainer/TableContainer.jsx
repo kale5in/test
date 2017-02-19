@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { AutoSizer, Table, Column } from 'react-virtualized';
-import SortDirection from './SortDirection'
-import {sortByString, sortByNumber} from '../../utils';
+import SortDirection from './SortDirection';
+import { sortByString, sortByNumber } from '../../utils';
 import styles from './TableContainer.sass';
 
 export default class App extends PureComponent {
