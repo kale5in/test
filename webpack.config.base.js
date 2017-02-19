@@ -5,9 +5,9 @@ const webpack = require('webpack');
 module.exports = function() {
   return {
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'public', 'assets'),
       filename: 'bundle.js',
-      publicPath: '/'
+      publicPath: '/assets/'
     },
     resolve: {
       extensions: [' ', '.js', '.jsx', '.json'],
@@ -18,6 +18,12 @@ module.exports = function() {
     ],
     module: {
       rules: [
+        {
+          test: /\.(jpe?g|png|gif|svg|eot|ttf|woff|woff2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
+          use: [
+            'file-loader',
+          ],
+        },
         {
           test: /\.jsx?$/,
           use: [
@@ -39,12 +45,6 @@ module.exports = function() {
           use: [
             'style-loader',
             'css-loader',
-          ],
-        },
-        {
-          test: /\.(jpe?g|png|gif|svg|eot|ttf|woff|woff2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
-          use: [
-            'file-loader',
           ],
         },
       ],
