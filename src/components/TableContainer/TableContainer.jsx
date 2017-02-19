@@ -21,7 +21,7 @@ export default class App extends PureComponent {
   noRowsRenderer = () => {
     return (
       <div className={styles.noRows}>
-        No rows
+        Совпадений нету
       </div>
     );
   }
