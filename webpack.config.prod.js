@@ -1,7 +1,7 @@
 /*eslint-disable */
-const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
-const commonConfig = require('./webpack.config.base.js');
+var webpack = require('webpack');
+var webpackMerge = require('webpack-merge');
+var commonConfig = require('./webpack.config.base.js');
 
 module.exports = function(env) {
     return webpackMerge(commonConfig(), {

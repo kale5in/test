@@ -1,6 +1,6 @@
 /*eslint-disable */
-const path = require("path");
-const webpack = require('webpack');
+var path = require("path");
+var webpack = require('webpack');
 
 module.exports = function() {
   return {
