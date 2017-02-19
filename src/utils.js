@@ -67,3 +67,21 @@ export function getVisibleData(data, query) {
 
   return list;
 }
+
+export function sortByString(array, asc, sortBy) {
+  return array.sort((a, b) => {
+    if (a[sortBy] > b[sortBy]) {
+      return asc ? 1 : -1;
+    }
+    if (a[sortBy] < b[sortBy]) {
+      return asc ? -1 : 1;
+    }
+    return 0;
+  });
+}
+export function sortByNumber(array, asc, sortBy) {
+  return array.sort((a, b) => {
+    if (asc) return a[sortBy] - b[sortBy];
+    return b[sortBy] - a[sortBy];
+  });
+}

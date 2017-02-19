@@ -3,35 +3,18 @@
     display: flex
     flex-direction: row
     flex-wrap: wrap
-    padding: 0 1rem 1rem
+    padding: 1rem 2rem 0 2rem
+    &:focus
+      outline: none
 
 .headerRow,
 .evenRow,
 .oddRow
-  border-bottom: 1px solid #e0e0e0
+  border-bottom: 1px solid #6e707f
+
+.oddRow
+  background-color: rgba(0,0,0,0.2)
 
 .headerColumn
   font-weight: 700
   text-transform: uppercase
-
-.List
-  width: 100%
-  border: 1px solid #DDD
-  margin-top: 15px
-
-.row
-  height: 100%
-  display: flex
-  flex-direction: row
-  align-items: center
-  padding: 0 25px
-  background-color: #fff
-  border-bottom: 1px solid #e0e0e0
-
-.letter
-    font-weight: bold
-    margin-bottom: 2px
-
-.name
-  font-weight: bold
-  margin-bottom: 2px

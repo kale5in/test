@@ -49,6 +49,7 @@ export default class Header extends Component {
             onClick={this.handleClick}
           />
         </div>
+        <div className={styles.headerBackground} />
       </nav>
     );
   }
